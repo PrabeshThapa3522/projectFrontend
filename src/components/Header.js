@@ -75,6 +75,7 @@ const Header = () => {
               <>
                 <Tab label="Admin" LinkComponent={Link} to="/admin" />
                 <Tab label="Auth" LinkComponent={Link} to="/auth" />
+                <Tab label="Events" LinkComponent={Link} to="/event" />
               </>
             )}
             {isUserLoggedIn && (
