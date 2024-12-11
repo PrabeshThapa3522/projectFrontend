@@ -17,7 +17,7 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
     email: "",
     password: "",
   });
-  const [isSignup, setIsSignup] = useState(false);
+  const [isSignup, setIsSignup] = useState(true);
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,

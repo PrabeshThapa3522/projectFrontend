@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getMovieDetails, newBooking } from "../../api-helpers/api-helpers";
 
 const Booking = () => {
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState('');
   const [inputs, setInputs] = useState({ seatNumber: "", date: "" });
   const id = useParams().id;
   console.log(id);
@@ -25,7 +25,7 @@ const Booking = () => {
     e.preventDefault();
     console.log(inputs);
     newBooking({ ...inputs, movie: movie._id })
-      .then((res) => console.log(res))
+      .then((res) => alert(`${inputs.seatNumber} seat have been book for ${JSON.stringify(movie.title)} movie`))
       .catch((err) => console.log(err));
   };
   return (
