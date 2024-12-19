@@ -1,0 +1,28 @@
+/* Movies.css */
+
+.movies-container {
+    margin: auto;
+    margin-top: 40px;
+    padding: 0 10px;
+    text-align: center;
+  }
+  
+  .movies-header {
+    margin: auto;
+    padding: 10px;
+    width: 40%;
+    background-color: #900c3f;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .movies-list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  

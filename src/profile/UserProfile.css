@@ -1,0 +1,91 @@
+/* General Container */
+.user-profile-container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Profile Info Section */
+  .profile-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profile-icon {
+    font-size: 10rem;
+    margin-bottom: 20px;
+  }
+  
+  .profile-icon i {
+    font-size: 6rem;
+    color: #00d386;
+  }
+  
+  /* User Info */
+  .user-info {
+    width: 100%;
+  }
+  
+  .user-info-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  /* Bookings Section */
+  .bookings-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .bookings-title {
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+  }
+  
+  .booking-list {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .booking-item {
+    background-color: #00d386;
+    color: white;
+    text-align: center;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .booking-details {
+    margin: 10px 0;
+    text-align: left;
+  }
+  
+  .delete-button {
+    background-color: #ff4c4c;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff0000;
+  }
+  

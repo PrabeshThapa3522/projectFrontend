@@ -1,0 +1,89 @@
+/* Container for the booking page */
+.booking-container {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Movie Title */
+  .movie-title {
+    font-family: "Arial", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Movie info container */
+  .movie-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* Movie Details */
+  .movie-details {
+    width: 45%;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+  }
+  
+  .movie-description {
+    margin-top: 20px;
+  }
+  
+  .movie-description p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Booking form container */
+  .booking-form {
+    width: 45%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Form Fields */
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #2b2d42;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4f5361;
+  }
+  

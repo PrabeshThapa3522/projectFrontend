@@ -1,0 +1,71 @@
+/* HomePage.css */
+
+/* Main container */
+.home-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  /* Banner section */
+  .banner-container {
+    margin: auto;
+    width: 80%;
+    height: 40vh;
+    padding: 10px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Latest Releases section */
+  .latest-releases {
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .latest-releases h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Movies container */
+  .movies-container {
+    margin: auto;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* View all button section */
+  .view-all-button-container {
+    display: flex;
+    padding: 30px;
+    margin: auto;
+    justify-content: center;
+  }
+  
+  .view-all-button {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid #2b2d42;
+    color: #2b2d42;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .view-all-button:hover {
+    background-color: #2b2d42;
+    color: white;
+  }
+  

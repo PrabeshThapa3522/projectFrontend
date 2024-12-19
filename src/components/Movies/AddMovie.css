@@ -1,0 +1,77 @@
+/* AddMovie.css */
+
+.add-movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  .add-movie-form {
+    width: 50%;
+    padding: 20px;
+    box-shadow: 10px 10px 20px #ccc;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-title {
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .form-input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .actor-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .add-actor-button {
+    padding: 10px;
+    background-color: #2b2d42;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-actor-button:hover {
+    background-color: #121217;
+  }
+  
+  .form-checkbox {
+    margin: 10px 0;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #2b2d42;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 20px auto;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #121217;
+  }
+  

@@ -1,0 +1,81 @@
+/* User.css */
+
+.user-container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .user-icon {
+    font-size: 20rem;
+  }
+  
+  .user-name {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .user-bookings {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-bookings h3 {
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .bookings-list {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .booking-item {
+    background-color: #00d386;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .booking-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .booking-info span {
+    margin: 5px;
+  }
+  
+  .delete-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    color: red;
+  }
+  

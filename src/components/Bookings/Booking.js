@@ -1,11 +1,11 @@
-import { Button, FormLabel, TextField, Typography } from "@mui/material";
+/*import { Button, FormLabel, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, newBooking } from "../../api-helpers/api-helpers";
 
 const Booking = () => {
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState('');
   const [inputs, setInputs] = useState({ seatNumber: "", date: "" });
   const id = useParams().id;
   console.log(id);
@@ -25,7 +25,7 @@ const Booking = () => {
     e.preventDefault();
     console.log(inputs);
     newBooking({ ...inputs, movie: movie._id })
-      .then((res) => console.log(res))
+      .then((res) => alert(`${inputs.seatNumber} seat have been book for ${JSON.stringify(movie.title)} movie`))
       .catch((err) => console.log(err));
   };
   return (
@@ -99,6 +99,93 @@ const Booking = () => {
               </form>
             </Box>
           </Box>
+        </Fragment>
+      )}
+    </div>
+  );
+};
+
+export default Booking;
+*/
+
+// This is without mui
+
+import React, { Fragment, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getMovieDetails, newBooking } from "../../api-helpers/api-helpers";
+import "./Booking.css"; // Assuming you have created the CSS file
+
+const Booking = () => {
+  const [movie, setMovie] = useState('');
+  const [inputs, setInputs] = useState({ seatNumber: "", date: "" });
+  const id = useParams().id;
+
+  useEffect(() => {
+    getMovieDetails(id)
+      .then((res) => setMovie(res.movie))
+      .catch((err) => console.log(err));
+  }, [id]);
+
+  const handleChange = (e) => {
+    setInputs((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    newBooking({ ...inputs, movie: movie._id })
+      .then((res) => alert(`${inputs.seatNumber} seat has been booked for the movie ${movie.title}`))
+      .catch((err) => console.log(err)); // Corrected this line
+  };
+
+  return (
+    <div className="booking-container">
+      {movie && (
+        <Fragment>
+          <h2 className="movie-title">Book Tickets for Movie: {movie.title}</h2>
+          <div className="movie-info">
+            <div className="movie-details">
+              <img
+                className="movie-poster"
+                src={movie.posterUrl}
+                alt={movie.title}
+              />
+              <div className="movie-description">
+                <p>{movie.description}</p>
+                <p><strong>Starring:</strong> {movie.actors.join(", ")}</p>
+                <p><strong>Release Date:</strong> {new Date(movie.releaseDate).toDateString()}</p>
+              </div>
+            </div>
+            <div className="booking-form">
+              <form onSubmit={handleSubmit}>
+                <div className="form-field">
+                  <label className="form-label">Seat Number</label>
+                  <input
+                    className="form-input"
+                    name="seatNumber"
+                    type="number"
+                    value={inputs.seatNumber}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">Booking Date</label>
+                  <input
+                    className="form-input"
+                    name="date"
+                    type="date"
+                    value={inputs.date}
+                    onChange={handleChange}
+                  />
+                </div>
+                <button className="submit-btn" type="submit">
+                  Book Now
+                </button>
+              </form>
+            </div>
+          </div>
         </Fragment>
       )}
     </div>

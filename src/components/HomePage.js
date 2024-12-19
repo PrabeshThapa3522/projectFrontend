@@ -53,7 +53,8 @@ const HomePage = () => {
   );
 }
 
-export default HomePage;*/
+export default HomePage;
+
 
 import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
@@ -115,6 +116,63 @@ const HomePage = () => {
         </Button>
       </Box>
     </Box>
+  );
+};
+
+export default HomePage;
+*/
+// This is without material ui
+
+import React, { useEffect, useState } from "react";
+import { getAllMovies } from "../api-helpers/api-helpers";
+import MovieItem from "./Movies/MovieItem";
+import { Link } from "react-router-dom";
+import "./HomePage.css";  // Import custom CSS for styling
+
+const HomePage = () => {
+  const [movies, setMovies] = useState([]);
+  
+  useEffect(() => {
+    getAllMovies()
+      .then((data) => setMovies(data.movies))
+      .catch((err) => console.log(err));
+  }, []);
+
+  return (
+    <div className="home-container">
+      <div className="banner-container">
+        <img
+          src="https://web.nepalnews.com/storage/story/1024/ANI_202309111217441694440218_1024.jpg"
+          alt="Puspa2"
+          className="banner-image"
+        />
+      </div>
+
+      <div className="latest-releases">
+        <h2>Latest Releases</h2>
+      </div>
+
+      <div className="movies-container">
+        {movies &&
+          movies
+            .slice(0, 4)
+            .map((movie, index) => (
+              <MovieItem
+                id={movie.id}
+                title={movie.title}
+                posterUrl={movie.posterUrl}
+                releaseDate={movie.releaseDate}
+                key={index}
+              />
+            ))}
+      </div>
+
+      <div className="view-all-button-container">
+        <Link to="/movies" className="view-all-button">
+          View All Movies
+        </Link>
+      </div>
+    </div>
   );
 };
 

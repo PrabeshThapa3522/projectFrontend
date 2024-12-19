@@ -1,0 +1,64 @@
+/* Admin.css */
+
+.admin-container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .admin-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .admin-icon {
+    font-size: 20rem;
+  }
+  
+  .admin-email {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .admin-movies {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-movies h3 {
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .movies-list {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .movie-item {
+    background-color: #00d386;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .movie-title, .movie-release {
+    text-align: left;
+    margin: 5px;
+  }
+  
