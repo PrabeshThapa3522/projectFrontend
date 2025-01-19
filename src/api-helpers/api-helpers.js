@@ -56,7 +56,7 @@ export const newBooking = async (data) => {
   const res = await axios
     .post("/booking", {
       movie: data.movie,
-      seatNumber: data.seatNumber,
+      seatNumbers: data.seatNumbers, // <-- Changed from seatNumber to seatNumbers
       date: data.date,
       user: localStorage.getItem("userId"),
     })
@@ -68,6 +68,7 @@ export const newBooking = async (data) => {
   const resData = await res.data;
   return resData;
 };
+
 
 export const getUserBooking = async () => {
   const id = localStorage.getItem("userId");
@@ -147,3 +148,4 @@ export const getAdminById = async () => {
   const resData = await res.data;
   return resData;
 };
+

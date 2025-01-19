@@ -1,11 +1,11 @@
-/* Container for the booking page */
+/* Container for the booking page 
 .booking-container {
     width: 100%;
     margin: 0;
     padding: 20px;
   }
   
-  /* Movie Title */
+  /* Movie Title 
   .movie-title {
     font-family: "Arial", sans-serif;
     font-size: 2rem;
@@ -14,14 +14,14 @@
     margin-bottom: 20px;
   }
   
-  /* Movie info container */
+  /* Movie info container 
   .movie-info {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
   
-  /* Movie Details */
+  /* Movie Details 
   .movie-details {
     width: 45%;
     padding: 10px;
@@ -43,7 +43,7 @@
     line-height: 1.5;
   }
   
-  /* Booking form container */
+  /* Booking form container 
   .booking-form {
     width: 45%;
     padding: 20px;
@@ -52,7 +52,7 @@
     border-radius: 8px;
   }
   
-  /* Form Fields */
+  /* Form Fields 
   .form-field {
     margin-bottom: 15px;
   }
@@ -86,4 +86,109 @@
   .submit-btn:hover {
     background-color: #4f5361;
   }
+    */
+  
+
+  .booking-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .movie-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .movie-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .movie-details {
+    flex: 1;
+  }
+  
+  .movie-poster {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .movie-description {
+    margin-top: 10px;
+  }
+  
+  .seating-arrangement {
+    flex: 2;
+  }
+  
+  .seat-category {
+    margin-bottom: 20px;
+  }
+  
+  .seat-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .seat-row {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .seat {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    font-size: 12px;
+  }
+  
+  .seat.selected {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .booking-form {
+    margin-top: 20px;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #218838;
+  }
+  
+  
+  
+
   

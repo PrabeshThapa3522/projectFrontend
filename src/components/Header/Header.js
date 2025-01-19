@@ -181,7 +181,7 @@ const Header = () => {
             <>
               <li>
                 <NavLink to="/auth" className="nav-link">
-                  Auth
+                  Users
                 </NavLink>
               </li>
               <li>
