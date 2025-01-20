@@ -71,20 +71,16 @@
   */
 
   /* Main container */
-.home-container {
+.home_page_container {
   width: 100%;
   height: 100%;
   margin: auto;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Banner section */
-.banner-container {
-  margin: auto;
-  width: 80%;
-  height: 60vh; /* Increased height */
-  padding: 10px;
-}
+
 
 .banner-image {
   width: 100%;
@@ -105,10 +101,9 @@
 }
 
 /* Movies container */
-.movies-container {
+.home_page_movies_container {
   margin: auto;
   display: flex; /* Use flexbox for row layout */
-  flex-direction: row; /* Ensure the layout is horizontal */
   width: 80%; /* Adjust width */
   justify-content: center; /* Align items from the start */
   align-items: center; /* Align items at the top */

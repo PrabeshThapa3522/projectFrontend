@@ -135,9 +135,9 @@
   export default AddMovie;
   */
 
-  // This is without mui
+// This is without mui
 
-  import React, { useState } from "react";
+import React, { useState } from "react";
 import { addMovie } from "../../api-helpers/api-helpers";
 import "./AddMovie.css"; // Add your custom styles here
 

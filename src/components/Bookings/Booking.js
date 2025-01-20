@@ -485,7 +485,7 @@ const Booking = () => {
               className="movie-poster"
               src={movie.posterUrl}
               alt={movie.title}
-              style={{ width: "300px", height: "auto" }}
+              style={{ width: "100%" , height: "400px"}}
             />
             <div className="movie-description">
               <p>{movie.description}</p>
@@ -541,30 +541,35 @@ const Booking = () => {
           <form onSubmit={handleSubmit}>
             {error && <p className="error-message">{error}</p>}{" "}
             {/* Display error message */}
+            <div className="booking_form">
             <div className="form-field">
-              <label>Selected Seats</label>
-              <input
-                type="text"
-                value={selectedSeats.map((s) => s.seat).join(", ")}
-                readOnly
-              />
-            </div>
-            <div className="form-field">
-              <label>Total Price</label>
-              <input type="text" value={`Rs ${totalPrice}`} readOnly />
-            </div>
-            <div className="form-field">
-              <label>Booking Date</label>
-              <input
+              <div className="form-field-label">
+                <label>Selected Seats</label>
+                <label>Total Price</label>
+                <label>Booking Date</label>
+              </div>
+              <div className="form-field-input">
+                <input className="form_field_input" 
+                  type="text"
+                  value={selectedSeats.map((s) => s.seat).join(", ")}
+                  readOnly
+                />
+                <input className="form_field_input" type="text" value={`Rs ${totalPrice}`} readOnly />
+                <input className="form_field_input" 
                 type="date"
                 name="date" // Ensure this matches the state key
                 value={inputs.date}
                 onChange={handleChange}
               />
+              </div>
+            
             </div>
-            <button type="submit" disabled={isLoading}>
+            <button className="btn" type="submit" disabled={isLoading}>
               {isLoading ? "Processing..." : "Buy Ticket"}
             </button>
+
+            </div>
+          
           </form>
         </div>
       ) : (

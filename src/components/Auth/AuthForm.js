@@ -135,11 +135,12 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
   return (
     <div className="auth-modal">
       <div className="auth-header">
-        <Link to="/" className="close-button">
+        {/* <Link to="/" className="close-button">
           &times;
-        </Link>
+        </Link> */}
+        <h2 className="auth-title">{isSignup ? "Signup" : "Login"}</h2>
+
       </div>
-      <h2 className="auth-title">{isSignup ? "Signup" : "Login"}</h2>
       <form onSubmit={handleSubmit}>
         <div className="auth-form-container">
           {!isAdmin && isSignup && (

@@ -195,8 +195,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <div className="banner-container">
+    <div className="home_page_container">
+      <div className="home_page_banner_container">
         <img
           src="https://www.glenbrookcinema.com.au/imagesDB/movies/MufasaTheLionKingSlidePG.jpg"
           alt="Mufasa"
@@ -208,7 +208,7 @@ const HomePage = () => {
         <h2>Latest Releases</h2>
       </div>
 
-      <div className="movies-container">
+      <div className="home_page_movies_container">
         {movies &&
           movies
             .slice(0, 4)
