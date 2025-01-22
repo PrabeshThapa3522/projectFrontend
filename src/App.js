@@ -10,14 +10,15 @@ import AddMovie from "./components/Movies/AddMovie";
 import Movies from "./components/Movies/Movies";
 import AdminProfile from "./profile/AdminProfile";
 import UserProfile from "./profile/UserProfile";
+import Footer from "./components/Footer/Footer"; // Footer is imported here
+
 import { adminActions, userActions } from "./store";
 
 function App() {
   const dispatch = useDispatch();
   const isAdminLoggedIn = useSelector((state) => state.admin.isLoggedIn);
   const isUserLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  console.log("isAdminLoggedIn", isAdminLoggedIn);
-  console.log("isUserLoggedIn", isUserLoggedIn);
+
   useEffect(() => {
     if (localStorage.getItem("userId")) {
       dispatch(userActions.login());
@@ -25,6 +26,7 @@ function App() {
       dispatch(adminActions.login());
     }
   }, [dispatch]);
+
   return (
     <div>
       <Header />
@@ -34,27 +36,26 @@ function App() {
           <Route path="/movies" element={<Movies />} />
           {!isUserLoggedIn && !isAdminLoggedIn && (
             <>
-              {" "}
               <Route path="/admin" element={<Admin />} />
               <Route path="/auth" element={<Auth />} />
             </>
           )}
-          {isUserLoggedIn && !isAdminLoggedIn && (
+          {isUserLoggedIn && (
             <>
-              {" "}
               <Route path="/user" element={<UserProfile />} />
               <Route path="/booking/:id" element={<Booking />} />
             </>
           )}
-          {isAdminLoggedIn && !isUserLoggedIn && (
+          {isAdminLoggedIn && (
             <>
-              {" "}
               <Route path="/add" element={<AddMovie />} />
-              <Route path="/user-admin" element={<AdminProfile />} />{" "}
+              <Route path="/user-admin" element={<AdminProfile />} />
             </>
           )}
+          <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </section>
+      <Footer /> {/* Footer component here */}
     </div>
   );
 }
