@@ -8,7 +8,7 @@ import axios from "axios"
 import { store } from "./store"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-axios.defaults.baseURL = "http://localhost:9000";
+axios.defaults.baseURL = "http://localhost:9001";
 root.render(
   <React.StrictMode>
     <Provider  store={store}>

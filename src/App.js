@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
@@ -11,6 +12,8 @@ import Movies from "./components/Movies/Movies";
 import AdminProfile from "./profile/AdminProfile";
 import UserProfile from "./profile/UserProfile";
 import { adminActions, userActions } from "./store";
+import FootballPage from "./components/FootballPage";
+import CricketPage from "./components/CricketPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,7 +56,12 @@ function App() {
               <Route path="/user-admin" element={<AdminProfile />} />{" "}
             </>
           )}
+                
+               <Route path="/events/football" element={<FootballPage />} /> 
+               <Route path="/events/cricket" element={<CricketPage />} />
+                  
         </Routes>
+
       </section>
     </div>
   );

@@ -1,4 +1,4 @@
-/* Header.css */
+/* Header.css 
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -81,4 +81,133 @@
   button.tab:hover {
     background-color: transparent;
   }
+    */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2b2d42;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+  }
+    
+  .header-left {
+      display: flex;
+      align-items: center;
+  }
+    
+  .movie-icon {
+      font-size: 2rem;
+      color: white;
+      margin-right: 10px;
+  }
+    
+  .header-title {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+    
+  .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+      justify-content: center;
+  }
+    
+  .search-input {
+      width: 60%;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+  }
+    
+  .search-input::placeholder {
+      color: #ccc;
+  }
+    
+  .tabs-container {
+      display: flex;
+      align-items: center;
+  }
+    
+  .tabs {
+      display: flex;
+  }
+    
+  .tab {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 1rem;
+      display: inline-block;
+      text-align: center;
+  }
+    
+  .tab:hover {
+      background-color: #00d386;
+      border-radius: 5px;
+  }
+    
+  button.tab {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+  }
+    
+  button.tab:hover {
+      background-color: transparent;
+  }
+  
+  /* Dropdown styles for Events */
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+  
+  .dropdown-btn {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 1rem;
+      display: inline-block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+  }
+  
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #444;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+      color: white;
+      padding: 10px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.9rem;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #00d386;
+  }
+  
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  
   
