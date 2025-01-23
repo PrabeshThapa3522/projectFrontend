@@ -116,7 +116,7 @@ const AdminProfile = () => {
             <h3>Added Movies</h3>
             <div className="movie-list">
               {admin.addedMovies.map((movie, index) => (
-                <div className="movie-item" key={index}>
+                <div className="admin_profile_movie_item" key={index}>
                   <p>Movie: {movie.title}</p>
                 </div>
               ))}

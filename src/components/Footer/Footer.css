@@ -1,0 +1,94 @@
+/* Basic footer styles */
+.footer {
+    background-color: #2b2d42;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 1.25rem;
+  }
+  
+  /* Footer container */
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Footer section */
+  .footer-section {
+    flex: 1;
+    padding: 20px;
+    min-width: 250px;
+  }
+  
+  .footer-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f7f7f7;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 5px 0;
+    display: block;
+  }
+  
+  .footer-link:hover {
+    color: #f7f7f7;
+  }
+  
+  .footer-icons {
+    margin-top: 15px;
+  }
+  
+  .footer-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .footer-icon:hover {
+    color: #f7f7f7;
+  }
+  
+  /* Footer bottom */
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section {
+      text-align: center;
+      padding: 15px;
+      min-width: 100%;
+    }
+  }
+  

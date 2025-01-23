@@ -37,10 +37,11 @@
   
   /* Movies container */
   .movies-container {
-    width: 70%;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
   }
   
   /* Heading for added movies */
@@ -59,7 +60,7 @@
   }
   
   /* Individual movie item styling */
-  .movie-item {
+  .admin_profile_movie_item {
     background-color: #00d386;
     color: white;
     text-align: center;

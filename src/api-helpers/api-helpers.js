@@ -56,19 +56,15 @@ export const newBooking = async (data) => {
   const res = await axios
     .post("/booking", {
       movie: data.movie,
-      seatNumbers: data.seatNumbers, // <-- Changed from seatNumber to seatNumbers
+      seatNumber: data.seatNumbers, // <-- Changed from seatNumber to seatNumbers
       date: data.date,
       user: localStorage.getItem("userId"),
     })
     .catch((err) => console.log(err));
 
-  if (res.status !== 201) {
-    return console.log("Unexpected Error");
-  }
-  const resData = await res.data;
-  return resData;
+  console.log(res);
+  return res.data;
 };
-
 
 export const getUserBooking = async () => {
   const id = localStorage.getItem("userId");
@@ -148,6 +144,3 @@ export const getAdminById = async () => {
   const resData = await res.data;
   return resData;
 };
-
-
-

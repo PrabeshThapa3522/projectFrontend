@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +24,10 @@ const Header = () => {
   const handleChange = (e, val) => {
     setSelectedMovie(val);
     const movie = data.find((mov) => mov.title === val);
-    if (isUserLoggedIn) {
+    if (movie) {
+      document.title = `MovieTickets - ${movie.title}`; // Set dynamic title
+    }
+    if (isUserLoggedIn && movie) {
       navigate(`/booking/${movie._id}`);
     }
   };

@@ -34,8 +34,11 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="header-left">
-        <div className="movie-icon">🎬</div>
-        <div className="header-title">CINEWORLD</div>
+      <Link className="" to="/">
+          <span className="movie-icon">🎬</span>
+          <span className="header-title">CINEWORLD</span>    
+      </Link>
+       
       </div>
       <div className="search-bar">
         <input
