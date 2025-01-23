@@ -370,8 +370,11 @@ import { getMovieDetails, newBooking } from "../../api-helpers/api-helpers";
 import "./Booking.css";
 
 const Booking = () => {
+  const [inputs, setInputs] = useState({
+    date: "",
+  });
+  const today = new Date().toISOString().split("T")[0];
   const [movie, setMovie] = useState(null);
-  const [inputs, setInputs] = useState({ date: "" });
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [error, setError] = useState(""); // Error state for form validation
@@ -380,9 +383,10 @@ const Booking = () => {
   const id = useParams().id;
 
   const seatCategories = [
-    { label: "Gold", price: 150, rows: ["A", "B", "C"] },
-    { label: "Silver", price: 200, rows: ["D", "E", "F"] },
-    { label: "Platinum", price: 300, rows: ["G", "H", "I"] },
+    { label: "", price:200, rows: ["A", "B", "C","D", "E", "F","G", "H", "I"] },
+    // { label: "Gold", price: 150, rows: ["A", "B", "C"] },
+    // { label: "Silver", price: 200, rows: ["D", "E", "F"] },
+    // { label: "Platinum", price: 300, rows: ["G", "H", "I"] },
   ];
   const columnsPerRow = 10;
 
@@ -394,9 +398,7 @@ const Booking = () => {
 
   const handleSeatSelection = (seat, price) => {
     if (selectedSeats.some((s) => s.seat === seat)) {
-      setSelectedSeats((prevSeats) =>
-        prevSeats.filter((s) => s.seat !== seat)
-      );
+      setSelectedSeats((prevSeats) => prevSeats.filter((s) => s.seat !== seat));
       setTotalPrice((prevPrice) => prevPrice - price);
     } else {
       setSelectedSeats((prevSeats) => [...prevSeats, { seat, price }]);
@@ -439,30 +441,20 @@ const Booking = () => {
         totalPrice,
       });
 
-      setIsLoading(false); // Reset loading state after the response
+      // setIsLoading(false); // Reset loading state after the response
 
-      if (response && response.bookingId) {
-        // Prepare the data for eSewa payment
-        const paymentData = {
-          amt: totalPrice,
-          psc: 0,
-          pdc: 0,
-          txAmt: 0,
-          tAmt: totalPrice,
-          pid: response.bookingId, // Booking ID or transaction ID
-          su: `${process.env.FRONTEND_URL}/payment/callback?status=Success`, // Success URL
-          fu: `${process.env.FRONTEND_URL}/payment/callback?status=Failure`, // Failure URL
-        };
-
-        // Generate eSewa payment URL
-        const esewaUrl = new URL("https://uat.esewa.com.np/epay/main"); // For testing in UAT
-
-        Object.keys(paymentData).forEach((key) =>
-          esewaUrl.searchParams.append(key, paymentData[key])
-        );
-
+      if (response) {
         // Redirect user to eSewa login page
-        window.location.href = esewaUrl.toString();
+        const newWindow = window.open("", "_blank");
+
+        if (newWindow) {
+          // Write the HTML content into the new window
+          newWindow.document.open();
+          newWindow.document.write(response);
+          newWindow.document.close();
+        } else {
+          console.error("Failed to open a new window.");
+        }
       } else {
         throw new Error("Booking failed. Please try again.");
       }
@@ -485,7 +477,7 @@ const Booking = () => {
               className="movie-poster"
               src={movie.posterUrl}
               alt={movie.title}
-              style={{ width: "100%" , height: "400px"}}
+              style={{ width: "100%", height: "400px" }}
             />
             <div className="movie-description">
               <p>{movie.description}</p>
@@ -503,8 +495,11 @@ const Booking = () => {
           <div className="seating-arrangement">
             {seatCategories.map((category) => (
               <div key={category.label} className="seat-category">
+                <div className="screen">
+                  <h2>this side screen</h2>
+                </div>
                 <h3>
-                  {category.label} Section (Rs {category.price})
+                  {category.label} Price (Rs {category.price})
                 </h3>
                 <div className="seat-rows">
                   {category.rows.map((row) => (
@@ -518,9 +513,7 @@ const Booking = () => {
                           return (
                             <button
                               key={seat}
-                              className={`seat ${
-                                isSelected ? "selected" : ""
-                              }`}
+                              className={`seat ${isSelected ? "selected" : ""}`}
                               onClick={() =>
                                 handleSeatSelection(seat, category.price)
                               }
@@ -542,34 +535,39 @@ const Booking = () => {
             {error && <p className="error-message">{error}</p>}{" "}
             {/* Display error message */}
             <div className="booking_form">
-            <div className="form-field">
-              <div className="form-field-label">
-                <label>Selected Seats</label>
-                <label>Total Price</label>
-                <label>Booking Date</label>
+              <div className="form-field">
+                <div className="form-field-label">
+                  <label>Selected Seats</label>
+                  <label>Total Price</label>
+                  <label>Booking Date</label>
+                </div>
+                <div className="form-field-input">
+                  <input
+                    className="form_field_input"
+                    type="text"
+                    value={selectedSeats.map((s) => s.seat).join(", ")}
+                    readOnly
+                  />
+                  <input
+                    className="form_field_input"
+                    type="text"
+                    value={`Rs ${totalPrice}`}
+                    readOnly
+                  />
+                  <input
+                    className="form_field_input"
+                    type="date"
+                    name="date" // Ensure this matches the state key
+                    value={inputs.date}
+                    min={today} // Disable dates below today
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-              <div className="form-field-input">
-                <input className="form_field_input" 
-                  type="text"
-                  value={selectedSeats.map((s) => s.seat).join(", ")}
-                  readOnly
-                />
-                <input className="form_field_input" type="text" value={`Rs ${totalPrice}`} readOnly />
-                <input className="form_field_input" 
-                type="date"
-                name="date" // Ensure this matches the state key
-                value={inputs.date}
-                onChange={handleChange}
-              />
-              </div>
-            
+              <button className="btn" type="submit" disabled={isLoading}>
+                {isLoading ? "Processing..." : "Buy Ticket"}
+              </button>
             </div>
-            <button className="btn" type="submit" disabled={isLoading}>
-              {isLoading ? "Processing..." : "Buy Ticket"}
-            </button>
-
-            </div>
-          
           </form>
         </div>
       ) : (
@@ -580,4 +578,3 @@ const Booking = () => {
 };
 
 export default Booking;
-

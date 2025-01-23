@@ -62,13 +62,9 @@ export const newBooking = async (data) => {
     })
     .catch((err) => console.log(err));
 
-  if (res.status !== 201) {
-    return console.log("Unexpected Error");
-  }
-  const resData = await res.data;
-  return resData;
+  console.log(res);
+  return res.data;
 };
-
 
 export const getUserBooking = async () => {
   const id = localStorage.getItem("userId");
@@ -148,4 +144,3 @@ export const getAdminById = async () => {
   const resData = await res.data;
   return resData;
 };
-

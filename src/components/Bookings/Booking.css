@@ -232,4 +232,13 @@
   
   
 
-  
+  .screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #ccc;
+    width: 30%;
+    margin: auto;
+  }
