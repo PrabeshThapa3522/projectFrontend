@@ -89,7 +89,7 @@
       justify-content: space-between;
       align-items: center;
       background-color: #2b2d42;
-      padding: 10px 20px;
+      padding: 37px 20px;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -121,7 +121,7 @@
     
   .search-input {
       width: 60%;
-      padding: 8px;
+      padding: 16px 6px;
       border: none;
       border-radius: 5px;
       font-size: 1rem;

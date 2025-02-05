@@ -88,7 +88,9 @@
   }
     */
   
-
+.moviename{
+  font-size: 40px;
+}
   .booking-container {
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -106,8 +108,8 @@
   }
   
   .movie-details {
-    flex: 1;
-    width: 100%;
+    width: 60%; 
+    padding: 32px 277px;
   }
   
   .movie-poster {
@@ -241,4 +243,33 @@
     background-color: #ccc;
     width: 30%;
     margin: auto;
+  }
+
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .seat.selected {
+    background-color: blue;
+  }
+  
+  .seat.booked {
+    background-color: red;
+    cursor: not-allowed;
+  }
+  .book{
+    display: flex;
+    padding: 0px 20px;
+    width: 88%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book1{
+    width: 100%;
   }

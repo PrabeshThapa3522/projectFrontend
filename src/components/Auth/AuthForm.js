@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./AuthForm.css"; // Assuming you've created the CSS file for styling
 
 const AuthForm = ({ onSubmit, isAdmin }) => {
+  const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -19,9 +20,11 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({ inputs, signup: isAdmin ? false : isSignup });
+    setLoading(true);
+    await onSubmit({ inputs, signup: isAdmin ? false : isSignup });
+    setLoading(false);
   };
 
   return (
@@ -63,8 +66,8 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
             name="password"
             className="auth-input"
           />
-          <button type="submit" className="auth-submit-button">
-            {isSignup ? "Signup" : "Login"}
+          <button type="submit" disabled={loading} className="auth-submit-button">
+            {loading ? "Processing . . ." : isSignup ? "Signup" : "Login"}
           </button>
           {!isAdmin && (
             <button

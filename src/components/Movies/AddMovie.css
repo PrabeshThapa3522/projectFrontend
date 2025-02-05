@@ -29,6 +29,7 @@
   }
   
   .form-input {
+    text-transform: capitalize;
     margin-bottom: 15px;
     padding: 10px;
     font-size: 14px;

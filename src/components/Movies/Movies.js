@@ -21,7 +21,8 @@ const Movies = () => {
               key={index}
               id={movie._id}
               posterUrl={movie.posterUrl}
-              releaseDate={movie.releaseDate}
+              releaseDate={movie.description}
+              percentage={movie.likelyUserPreference}
               title={movie.title}
             />
           ))}

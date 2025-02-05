@@ -42,7 +42,7 @@ const Header = () => {
       <div className="search-container">
         <input
           type="text"
-          className="search-input"
+          className="search-input1"
           placeholder="Search Across Multiple Movies"
           list="movies"
           onChange={(e) => handleChange(e, e.target.value)}
