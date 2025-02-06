@@ -4,8 +4,7 @@ import { getMovieDetails, newBooking } from "../../api-helpers/api-helpers";
 import "./Booking.css";
 
 const Booking = () => {
-  // Optionally initialize with today's date.
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().split("T")[0];  // today's date
   const [inputs, setInputs] = useState({ date: today, showTimes: [], theaters: [] });
   const [movie, setMovie] = useState(null);
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -34,11 +33,10 @@ const Booking = () => {
   }, [id]);
 
   useEffect(() => {
-    if(movie?.bookedSeats){
-      setPrebooked(movie?.bookedSeats ?? [])
+    if (movie?.bookedSeats) {
+      setPrebooked(movie?.bookedSeats ?? []);
     }
-  }, [movie])
-
+  }, [movie]);
 
   // Load booked seats for the selected movie, date, show time, and theater.
   useEffect(() => {
@@ -56,6 +54,16 @@ const Booking = () => {
     });
     setBookedSeats(updatedBookedSeats);
   }, [id, inputs.date, inputs.showTimes, inputs.theaters]);
+
+  // Reset booking if new date is selected
+  useEffect(() => {
+    if (inputs.date !== today) {
+      // Reset states here
+      setSelectedSeats([]);
+      setTotalPrice(0);
+      setBookedSeats([]);  // Reset booked seats when the date changes
+    }
+  }, [inputs.date, today]);
 
   const handleSeatSelection = (seat, price) => {
     if (selectedSeats.some((s) => s.seat === seat)) {
@@ -88,10 +96,8 @@ const Booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!selectedSeats.length)
-      return setError("Please select at least one seat.");
-    if (!inputs.date)
-      return setError("Please select a valid date.");
+    if (!selectedSeats.length) return setError("Please select at least one seat.");
+    if (!inputs.date) return setError("Please select a valid date.");
 
     const seatNumbers = selectedSeats.map((s) => s.seat);
     setIsLoading(true);
@@ -150,13 +156,12 @@ const Booking = () => {
                 style={{ width: "100%", height: "400px" }}
               />
               <div className="movie-description">
-                <p>{movie.description}</p>
+                <p>  <strong>Type:</strong>{movie.description}</p>
                 <p>
                   <strong>Starring:</strong> {movie.actors.join(", ")}
                 </p>
                 <p>
-                  <strong>Release Date:</strong>{" "}
-                  {new Date(movie.releaseDate).toDateString()}
+                  <strong>Release Date:</strong> {new Date(movie.releaseDate).toDateString()}
                 </p>
               </div>
             </div>
@@ -207,52 +212,49 @@ const Booking = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <form onSubmit={handleSubmit}>
-            {error && <p className="error-message">{error}</p>}
-            <div className="booking_form">
-              <div className="form-field">
-                <div className="form-field-label">
-                  <label>Selected Seats</label>
-                  <label>Total Price</label>
-                  <label>Booking Date</label>
-                  <label>Show Time</label>
-                  <label>Theater</label>
+            <form onSubmit={handleSubmit}>
+              {error && <p className="error-message">{error}</p>}
+              <div className="booking_form">
+                <div className="form-field">
+                  <div className="form-field-label">
+                    <label>Selected Seats</label>
+                    <label>Total Price</label>
+                    <label>Booking Date</label>
+                    <label>Show Time</label>
+                    <label>Theater</label>
+                  </div>
+                  <div className="form-field-input">
+                    <input
+                      className="form_field_input"
+                      type="text"
+                      value={selectedSeats.map((s) => s.seat).join(", ")}
+                      readOnly
+                    />
+                    <input
+                      className="form_field_input"
+                      type="text"
+                      value={`Rs ${totalPrice}`}
+                      readOnly
+                    />
+              <input
+    className="form_field_input"
+    type="date"
+    name="date"
+    value={inputs.date}
+    min={today}  // Only today's date is selectable
+    max={today}  // Future dates are disabled
+    onChange={handleChange}
+  />
+                    <p>2:00 PM</p>
+                    <p>RK Cinemas</p>
+                  </div>
                 </div>
-                <div className="form-field-input">
-                  <input
-                    className="form_field_input"
-                    type="text"
-                    value={selectedSeats.map((s) => s.seat).join(", ")}
-                    readOnly
-                  />
-                  <input
-                    className="form_field_input"
-                    type="text"
-                    value={`Rs ${totalPrice}`}
-                    readOnly
-                  />
-                  <input
-                    className="form_field_input"
-                    type="date"
-                    name="date"
-                    value={inputs.date}
-                    min={today}
-                    onChange={handleChange}
-                  />
-                  
-                    <p>10:00 AM</p>
-                   
-                  
-                 <p>RK Cinemas</p>
-                </div>
+                <button className="btn" type="submit" disabled={isLoading}>
+                  {isLoading ? "Processing..." : "Buy Ticket"}
+                </button>
               </div>
-              <button className="btn" type="submit" disabled={isLoading}>
-                {isLoading ? "Processing..." : "Buy Ticket"}
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       ) : (
         <p>Loading movie details...</p>

@@ -32,8 +32,8 @@ experience with us!
           <h3 className="footer-heading">Contact Us</h3>
           <p className="footer-text">
             Email: support@movietickets.com<br />
-            Phone: +1 234 567 890<br />
-            Address: 123 Movie Lane, Hollywood, CA
+            Phone: +9779866202276<br />
+            Address: 12 tanglaphat, kalanki, ktm
           </p>
           <div className="footer-icons">
             <a href="https://facebook.com" target="_blank" rel="noreferrer" className="footer-icon">

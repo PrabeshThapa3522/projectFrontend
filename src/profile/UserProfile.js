@@ -37,12 +37,9 @@ const UserProfile = () => {
       <Fragment>
         {user && (
           <div className="profile-info-container">
-            <div className="profile-icon">
-              <i className="fas fa-user-circle"></i> {/* FontAwesome icon for user */}
-            </div>
+            
             <div className="user-info">
-              <div className="user-info-item"><strong>Name:</strong> {user.name}</div>
-              <div className="user-info-item"><strong>Email:</strong> {user.email}</div>
+              {/* <div className="user-info-item"> {user.name}</div> */}
             </div>
           </div>
         )}
@@ -53,13 +50,14 @@ const UserProfile = () => {
             <div className="booking-list">
               {bookings.map((booking) => (
                 <div key={booking._id} className="booking-item">
+                   <div className="user-info-item"> {user.name}</div>
                   <div className="booking-details"><strong>Movie:</strong> {booking.movie.title}</div>
                   <div className="booking-details"><strong>Seat:</strong> {booking.seatNumber}</div>
                   <div className="booking-details"><strong>Date:</strong> {new Date(booking.date).toDateString()}</div>
 
                   {/* Show Time and Theater */}
                   <div className="booking-details">
-                    <strong>Show Time:10:00 AM</strong> 
+                    <strong>Show Time:2:00 PM</strong> 
                   </div>
                   <div className="booking-details">
                     <strong>Theater:RK Cinemas</strong> 

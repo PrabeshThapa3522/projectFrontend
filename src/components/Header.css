@@ -1,89 +1,4 @@
-/* Header.css 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2b2d42;
-    padding: 30px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .header-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .movie-icon {
-    font-size: 2rem;
-    color: white;
-    margin-right: 10px;
-  }
-  
-  .header-title {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .search-bar {
-    flex: 1;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
-    padding: 3px;
-  }
-  
-  .search-input {
-    width: 60%;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    font-size: 14px;
-  }
-  
-  .search-input::placeholder {
-    color: #ccc;
-  }
-  
-  .tabs-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .tabs {
-    display: flex;
-  }
-  
-  .tab {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 1rem;
-    display: inline-block;
-    text-align: center;
-  }
-  
-  .tab:hover {
-    background-color: #00d386;
-    border-radius: 5px;
-  }
-  
-  button.tab {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button.tab:hover {
-    background-color: transparent;
-  }
-    */
+
     .header-container {
       display: flex;
       justify-content: space-between;
@@ -93,11 +8,14 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      padding: 40px 170px;
+      
   }
     
   .header-left {
       display: flex;
       align-items: center;
+      size: 30px;
   }
     
   .movie-icon {
@@ -108,7 +26,7 @@
     
   .header-title {
       color: white;
-      font-size: 1.5rem;
+      font-size: 40px;
       font-weight: bold;
   }
     
@@ -119,14 +37,7 @@
       justify-content: center;
   }
     
-  .search-input {
-      width: 60%;
-      padding: 16px 6px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      outline: none;
-  }
+ 
     
   .search-input::placeholder {
       color: #ccc;
@@ -139,6 +50,7 @@
     
   .tabs {
       display: flex;
+
   }
     
   .tab {
@@ -146,9 +58,10 @@
       text-decoration: none;
       padding: 10px 20px;
       margin: 0 5px;
-      font-size: 1rem;
+      font-size: 1.7rem;
       display: inline-block;
       text-align: center;
+      font-weight: 600;
   }
     
   .tab:hover {

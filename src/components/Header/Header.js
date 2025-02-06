@@ -40,13 +40,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="search-container">
-        <input
-          type="text"
-          className="search-input1"
-          placeholder="Search Across Multiple Movies"
-          list="movies"
-          onChange={(e) => handleChange(e, e.target.value)}
-        />
+     
         <datalist id="movies">
           {data.map((movie) => (
             <option key={movie._id} value={movie.title} />
@@ -62,11 +56,11 @@ const Header = () => {
                   Users
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/admin" className="nav-link">
                   Admin
                 </NavLink>
-              </li>
+              </li> */}
             </>
           )}
 
@@ -91,7 +85,7 @@ const Header = () => {
           {isAdminLoggedIn && (
             <>
               <li>
-                <NavLink to="/profile" className="nav-link">
+                <NavLink to="/profile" className="nav-link profile">
                   Profile
                 </NavLink>
               </li>

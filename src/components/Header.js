@@ -136,12 +136,7 @@ const Header = () => {
         <div className="header-title">CINEWORLD</div>
       </div>
       <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search Across Multiple Movies"
-          onChange={handleSearchChange}
-          className="search-input"
-        />
+
       </div>
       <div className="tabs-container">
         <div className="tabs">
@@ -150,13 +145,13 @@ const Header = () => {
           </Link>
           {!isAdminLoggedIn && !isUserLoggedIn && (
             <>
-              <Link className="tab" to="/admin">
+              {/* <Link className="tab" to="/admin">
                 Admin
-              </Link>
+              </Link> */}
               <Link className="tab" to="/auth">
-                Auth
+                Signup
               </Link>
-              <div className="dropdown">
+              {/* <div className="dropdown">
                 <button className="tab dropdown-btn">Events</button>
                 <div className="dropdown-content">
                   <Link to="/events/football">Football</Link>
@@ -165,7 +160,7 @@ const Header = () => {
                   <Link to="/events/singing">Singing</Link>
                   <Link to="/events/dancing">Dancing</Link>
                 </div>
-              </div>
+              </div> */}
             </>
           )}
           {isUserLoggedIn && (
@@ -183,9 +178,9 @@ const Header = () => {
               <Link className="tab" to="/add">
                 Add Movie
               </Link>
-              <Link className="tab" to="/user-admin">
+              {/* <Link className="tab" to="/user-admin">
                 Profile
-              </Link>
+              </Link> */}
               <button className="tab" onClick={() => logout(true)}>
                 Logout
               </button>
